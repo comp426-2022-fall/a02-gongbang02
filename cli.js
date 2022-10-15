@@ -46,6 +46,11 @@ const data = await response.json()
 
 console.log(data)
 
+if (args.j) {
+	console.log(data)
+	process.exit(0)
+}
+
 const days = args.d;
 
 if (days == 0) {
