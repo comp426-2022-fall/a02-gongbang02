@@ -30,6 +30,8 @@ if(args.n) {
 
 if(args.s) {
     latitude = args.s
+} else {
+	console.log("Latitude must be in range")
 }
 
 let longitude = '79'
@@ -38,6 +40,8 @@ if (args.e) {
 }
 if (args.w) {
     longitude = args.w
+} else {
+	console.log("Longitude must be in range")
 }
 
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=weathercode,temperature_2m_max,sunrise,precipitation_sum,precipitation_hours&timezone=' + timezone)
@@ -45,8 +49,6 @@ const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' 
 const data = await response.json()
 
 if (args.j) {
-	console.log("Latitude must be in range")
-	console.log("Longitude must be in range")
 	console.log(data)
 	process.exit(0)
 }
@@ -59,3 +61,4 @@ if (days == 0) {
 	console.log("tomorrow.");
 }
 }
+
