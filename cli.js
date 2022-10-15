@@ -44,20 +44,22 @@ const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' 
 
 const data = await response.json()
 
-console.log(data)
-
 if (args.j) {
+	console.log("Latitude must be in range")
+	console.log("Longitude must be in range")
 	console.log(data)
 	process.exit(0)
 }
 
-const days = args.d;
+if(args.d != null) {
+	const days = args.d;
 
-if (days == 0) {
-  console.log("today.");
-} else if (days > 1) {
-  console.log("in " + days + " days.");
-} else {
-  console.log("tomorrow.");
-}
+	if (days == 0) {
+  		console.log("today.");
+	} else if (days > 1) {
+  		console.log("in " + days + " days.");
+	} else {
+  		console.log("tomorrow.");
+	}
+	}
 }
